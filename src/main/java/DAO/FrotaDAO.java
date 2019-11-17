@@ -1,7 +1,7 @@
 package DAO;
 
 import JDBC.ConnectionFactory;
-import MODEL.Estoque;
+import MODEL.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
