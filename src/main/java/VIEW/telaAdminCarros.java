@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class telaAdminCarros extends javax.swing.JFrame {
 
     //listando dados da tabela
-    public void listar(){
+   /* public void listar(){
     
     ClientesDAO dao = new ClientesDAO();
     List<Clientes> lista = dao.listarClientes();
@@ -54,7 +54,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
     
         
     
-    }
+    }*/
     public telaAdminCarros() {
         initComponents();
     }
@@ -632,7 +632,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
     private void btnSalvarCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCadCliActionPerformed
         // TODO add your handling code here:
 
-        try {
+      /*  try {
 
             Clientes obj = new Clientes();
             obj.setNome(txtNomeDados.getText());
@@ -658,7 +658,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, e);
 
         }
-
+*/
 
     }//GEN-LAST:event_btnSalvarCadCliActionPerformed
 
@@ -667,7 +667,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoCadCliActionPerformed
 
     private void btnExcluirCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCadCliActionPerformed
-                try {
+             /*   try {
                   Clientes obj = new Clientes();
 
                  obj.setId(Integer.parseInt(txtCodigoDados.getText()));
@@ -678,13 +678,13 @@ public class telaAdminCarros extends javax.swing.JFrame {
             
         } catch (Exception e) {
         }
-
+*/
     }//GEN-LAST:event_btnExcluirCadCliActionPerformed
 
     private void btnEditarCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCadCliActionPerformed
         // TODO add your handling code here:
         
-
+/*
         try {
 
             Clientes obj = new Clientes();
@@ -711,17 +711,19 @@ public class telaAdminCarros extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, e);
 
         }
+        */
     }//GEN-LAST:event_btnEditarCadCliActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
        ///caregar a lista
-       listar();
+    //   listar();
         
     }//GEN-LAST:event_formWindowActivated
 
     private void btnPesquisaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaClienteActionPerformed
         // Botao pesquisar na tabela de clientes
 
+     /*
         String nome = "%"+txtNomeConsultaCliente.getText()+"%";
         ClientesDAO dao = new ClientesDAO();
         List<Clientes> lista = dao.buscaClientePorNome(nome);
@@ -749,10 +751,12 @@ public class telaAdminCarros extends javax.swing.JFrame {
 
             });
         }
+        */
     }//GEN-LAST:event_btnPesquisaClienteActionPerformed
 
     private void txtNomeConsultaClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeConsultaClienteKeyPressed
         // Pesquisa enquanto digita
+      /*
         String nome = "%"+txtNomeConsultaCliente.getText()+"%";
         ClientesDAO dao = new ClientesDAO();
         List<Clientes> lista = dao.buscaClientePorNome(nome);
@@ -779,7 +783,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
                 c.getUf()
 
             });
-        }
+        }*/
     }//GEN-LAST:event_txtNomeConsultaClienteKeyPressed
 
     private void txtNomeConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeConsultaClienteActionPerformed
@@ -788,7 +792,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
 
     private void tabelaDeClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaDeClientesMouseClicked
         // passar dados da tabela para o painel de Dados Pessoais
-        painelDaTabelaClientes.setSelectedIndex(0);
+    /*    painelDaTabelaClientes.setSelectedIndex(0);
         txtCodigoDados.setText(tabelaDeClientes.getValueAt(tabelaDeClientes
             .getSelectedRow(), 0).toString());
 
@@ -818,12 +822,12 @@ public class telaAdminCarros extends javax.swing.JFrame {
             .getSelectedRow(), 12).toString());
     comboUfDados.setSelectedItem(tabelaDeClientes.getValueAt(tabelaDeClientes
         .getSelectedRow(), 13).toString());
-
+*/
     }//GEN-LAST:event_tabelaDeClientesMouseClicked
 
     private void btnPesquisaNomeDadosPessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaNomeDadosPessoaisActionPerformed
         // Pesquisar na tela dados pessoais
-        try {
+     /*   try {
             String nome = txtNomeDados.getText();
             Clientes obj = new Clientes();
             ClientesDAO dao = new ClientesDAO();
@@ -853,6 +857,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+        */
 
     }//GEN-LAST:event_btnPesquisaNomeDadosPessoaisActionPerformed
 
@@ -877,7 +882,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailDadosActionPerformed
 
     private void txtNomeDadosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeDadosKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+      /*  if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             try {
                 String nome = txtNomeDados.getText();
                 Clientes obj = new Clientes();
@@ -909,7 +914,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e);
             }
 
-        }
+        }*/
     }//GEN-LAST:event_txtNomeDadosKeyPressed
 
     private void txtCodigoDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoDadosActionPerformed
@@ -959,7 +964,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("windows".equals(info.getName())) {
+                if ("GTK+".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

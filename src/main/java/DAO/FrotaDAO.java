@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 public class FrotaDAO {
     private Connection connection;
-    
+    /*
 	public FrotaDAO() {
 		this.connection = new ConnectionFactory().getConnection();
 
@@ -180,7 +180,7 @@ public List<Estoque> getLista() {
                 }
 	}
   
-    
+    */
 
 }
 

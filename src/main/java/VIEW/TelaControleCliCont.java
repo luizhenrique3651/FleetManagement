@@ -5,6 +5,9 @@
  */
 package VIEW;
 
+import java.awt.Color;
+
+
 /**
  *
  * @author luiz
@@ -15,7 +18,10 @@ public class TelaControleCliCont extends javax.swing.JFrame {
      * Creates new form TelaControleCliCont
      */
     public TelaControleCliCont() {
+          
         initComponents();
+        Desktop.setBackground(Color.LIGHT_GRAY);
+       
     }
 
     /**
@@ -41,12 +47,18 @@ public class TelaControleCliCont extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 0));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         javax.swing.GroupLayout DesktopLayout = new javax.swing.GroupLayout(Desktop);
         Desktop.setLayout(DesktopLayout);
         DesktopLayout.setHorizontalGroup(
             DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 974, Short.MAX_VALUE)
+            .addGap(0, 1095, Short.MAX_VALUE)
         );
         DesktopLayout.setVerticalGroup(
             DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,9 +114,7 @@ public class TelaControleCliCont extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Desktop)
-                .addGap(121, 121, 121))
+            .addComponent(Desktop)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,6 +136,12 @@ public class TelaControleCliCont extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
        
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
+       
+
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
