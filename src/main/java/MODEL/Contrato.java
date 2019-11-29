@@ -7,8 +7,12 @@ package MODEL;
 
 /**
  *
- * @author luiz
+ * @author bruno
  */
-public class Frota {
+public class Contrato {
+    private int id_contrato;
+    private double valor_anul;
+    private int id_cliente;  
+    private int id_carro;
     
 }
