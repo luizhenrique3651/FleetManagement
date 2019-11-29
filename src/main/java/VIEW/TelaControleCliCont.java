@@ -88,6 +88,11 @@ public class TelaControleCliCont extends javax.swing.JFrame {
         jMenu2.setText("Contratos");
 
         jMenuItem3.setText("Cadastro");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem3);
 
         jMenuItem4.setText("Listagem");
@@ -125,6 +130,7 @@ public class TelaControleCliCont extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -135,6 +141,10 @@ public class TelaControleCliCont extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
        
+        TelaListaCliente cad = new TelaListaCliente();
+        Desktop.add(cad);
+        cad.show();
+        
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -142,6 +152,12 @@ public class TelaControleCliCont extends javax.swing.JFrame {
        
 
     }//GEN-LAST:event_formWindowActivated
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        TelaCadastroContrato cadCont = new TelaCadastroContrato();
+        Desktop.add(cadCont);
+        cadCont.show();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
