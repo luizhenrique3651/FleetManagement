@@ -60,6 +60,7 @@ public class CarroDAO {
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
 
+            
             stmt.setString(1, carro.getChassi());
             stmt.setString(2, carro.getPlaca());
             stmt.setString(3, carro.getModelo());

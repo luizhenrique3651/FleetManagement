@@ -98,7 +98,7 @@
                   <Component id="lblRazao2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtCelularDados" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="173" max="32767" attributes="0"/>
+              <EmptySpace pref="85" max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
           </Group>
