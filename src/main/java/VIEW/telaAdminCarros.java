@@ -21,32 +21,30 @@ import javax.swing.table.DefaultTableModel;
 public class telaAdminCarros extends javax.swing.JFrame {
 
     //listando dados da tabela
-   /* public void listar(){
+    public void listar(){
     
-    ClientesDAO dao = new ClientesDAO();
-    List<Clientes> lista = dao.listarClientes();
+    CarroDAO dao = new CarroDAO();
+    List<Carro> lista = dao.getLista();
         
     DefaultTableModel dados = (DefaultTableModel) tabelaDeClientes.getModel();
     dados.setNumRows(0);
     
     
-    for(Clientes c: lista){
+    for(Carro c: lista){
         
         dados.addRow(new Object[]{
-            c.getId(),
-            c.getNome(),
-            c.getRg(),
-            c.getCpf(),
-            c.getEmail(),
-            c.getTelefone(),
-            c.getCelular(),
-            c.getCep(),
-            c.getEndereco(),
-            c.getNumero(),
-            c.getComplemento(),
-            c.getBairro(),
-            c.getCidade(),
-            c.getUf()
+            c.getId_carro(),
+            c.getChassi(),
+            c.getPlaca(),
+            c.getModelo(),
+            c.getAno(),
+            c.getCor(),
+            c.getCilindrada(),
+            c.getTipoCombustivel(),
+            c.getValor_mensal(),
+            c.getKm_atual(),
+            c.getKm_troca(),
+           
                 
             
                 
@@ -56,7 +54,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
     
         
     
-    }*/
+    }
     public telaAdminCarros() {
         initComponents();
     }
@@ -367,7 +365,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Modelo", "Placa", "Chassis", "Cor", "Cilindrada", "Combustível", "Ano", "KM atual", "KM revisão", "Valor mensal", "Status"
+                "Código", "Chassis", "Placa", "Modelo", "Ano", "Cor", "Cilindrada", "Combustível", "Valor mensal", "KM atual", "KM revisão", "Status"
             }
         ));
         tabelaDeClientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -710,7 +708,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
        ///caregar a lista
-    //   listar();
+      listar();
         
     }//GEN-LAST:event_formWindowActivated
 

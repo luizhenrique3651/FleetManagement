@@ -29,7 +29,7 @@ public class CarroDAO {
     }
 
     public void adiciona(Carro carro) {
-        String sql = "insert into carro" + "(chassi,placa,modelo,ano,cor,cilindra,tipoCombustivel,valor_mensal,km_atual,km_troca)" + "values (?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into carro" + "(chassi,placa,modelo,ano,cor,cilindrada,tipoCombustivel,valor_mensal,km_atual,km_troca)" + "values (?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
 
@@ -103,15 +103,16 @@ public class CarroDAO {
             while (rs.next()) {
                 Carro carro = new Carro();
                 carro.setId_carro(rs.getInt("id_carro"));
-                carro.setPlaca(rs.getString("Placa"));
-                carro.setModelo(rs.getString("Modelo"));
-                carro.setAno(rs.getString("Ano"));
-                carro.setCor(rs.getString("Cor"));
-                carro.setCilindrada(rs.getString("Cilindra"));
-                carro.setTipoCombustivel(rs.getString("Tipo Combustivel"));
-                carro.setValor_mensal(rs.getDouble("Valor Mensal"));
-                carro.setKm_atual(rs.getInt("Km Atual"));
-                carro.setKm_troca(rs.getInt("Km Troca"));
+                carro.setChassi(rs.getString("chassi"));
+                carro.setPlaca(rs.getString("placa"));
+                carro.setModelo(rs.getString("modelo"));
+                carro.setAno(rs.getString("ano"));
+                carro.setCor(rs.getString("cor"));
+                carro.setCilindrada(rs.getString("cilindrada"));
+                carro.setTipoCombustivel(rs.getString("tipoCombustivel"));
+                carro.setValor_mensal(rs.getDouble("valor_mensal"));
+                carro.setKm_atual(rs.getInt("km_atual"));
+                carro.setKm_troca(rs.getInt("km_troca"));
 
                 carros.add(carro);
             }
