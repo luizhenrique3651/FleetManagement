@@ -34,6 +34,8 @@ public class TelaControleCliCont extends javax.swing.JFrame {
     private void initComponents() {
 
         Desktop = new javax.swing.JDesktopPane();
+        selecTema = new javax.swing.JComboBox<>();
+        tema = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -44,6 +46,7 @@ public class TelaControleCliCont extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -64,6 +67,15 @@ public class TelaControleCliCont extends javax.swing.JFrame {
             DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 509, Short.MAX_VALUE)
         );
+
+        selecTema.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nimbus", "GTK+" }));
+
+        tema.setText("Aplicar");
+        tema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                temaActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Clientes");
 
@@ -113,6 +125,14 @@ public class TelaControleCliCont extends javax.swing.JFrame {
         jMenuItem6.setText("Criar conta");
         jMenu3.add(jMenuItem6);
 
+        jMenuItem7.setText("Tema");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem7);
+
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Sobre");
@@ -125,11 +145,21 @@ public class TelaControleCliCont extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Desktop)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(selecTema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(tema)
+                .addGap(70, 70, 70))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(74, 74, 74)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(selecTema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tema))
+                .addGap(28, 28, 28)
                 .addComponent(Desktop)
                 .addContainerGap())
         );
@@ -153,7 +183,7 @@ public class TelaControleCliCont extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-
+         
        
 
     }//GEN-LAST:event_formWindowActivated
@@ -170,6 +200,32 @@ public class TelaControleCliCont extends javax.swing.JFrame {
         listaCont.show();
 
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+       TelaTema tema = new TelaTema();
+       Desktop.add(tema);
+       tema.show();
+              
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void temaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_temaActionPerformed
+try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if (selecTema.getSelectedItem().toString().equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TelaControleCliCont.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TelaControleCliCont.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TelaControleCliCont.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TelaControleCliCont.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_temaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,5 +275,8 @@ public class TelaControleCliCont extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JComboBox<String> selecTema;
+    private javax.swing.JButton tema;
     // End of variables declaration//GEN-END:variables
 }

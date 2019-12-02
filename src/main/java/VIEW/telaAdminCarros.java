@@ -6,6 +6,8 @@
 package VIEW;
 
 
+import DAO.CarroDAO;
+import MODEL.Carro;
 import VIEW.utilitarios;
 import java.awt.event.KeyEvent;
 import java.util.List;
@@ -75,28 +77,28 @@ public class telaAdminCarros extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtCodigoDados = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtNomeDados = new javax.swing.JTextField();
+        txtModelo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtEmailDados = new javax.swing.JTextField();
+        txtCor = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtCelularDados = new javax.swing.JFormattedTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtEnderecoDados = new javax.swing.JTextField();
+        txtChassis = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtBairroDados = new javax.swing.JTextField();
+        txtKmAtual = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        comboUfDados = new javax.swing.JComboBox<>();
+        comboAno = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
-        txtNumeroDados = new javax.swing.JTextField();
+        txtKmRevisao = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        txtComplementoDados = new javax.swing.JTextField();
+        txtValorAluguel = new javax.swing.JTextField();
         btnPesquisaNomeDadosPessoais = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        comboCilindrada = new javax.swing.JComboBox<>();
+        comboCombustivel = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        comboStatus = new javax.swing.JComboBox<>();
+        txtPlaca = new javax.swing.JTextField();
         painelConsultaClientes = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaDeClientes = new javax.swing.JTable();
@@ -165,32 +167,25 @@ public class telaAdminCarros extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Modelo:");
 
-        txtNomeDados.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtNomeDados.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtModelo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtModelo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtNomeDadosKeyPressed(evt);
+                txtModeloKeyPressed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Cor:");
 
-        txtEmailDados.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtEmailDados.addActionListener(new java.awt.event.ActionListener() {
+        txtCor.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtCor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailDadosActionPerformed(evt);
+                txtCorActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Placa:");
-
-        try {
-            txtCelularDados.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtCelularDados.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("Cilindrada:");
@@ -198,20 +193,20 @@ public class telaAdminCarros extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setText("Chassis:");
 
-        txtEnderecoDados.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtEnderecoDados.addActionListener(new java.awt.event.ActionListener() {
+        txtChassis.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtChassis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEnderecoDadosActionPerformed(evt);
+                txtChassisActionPerformed(evt);
             }
         });
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setText("Quilometragel atual:");
 
-        txtBairroDados.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtBairroDados.addActionListener(new java.awt.event.ActionListener() {
+        txtKmAtual.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtKmAtual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBairroDadosActionPerformed(evt);
+                txtKmAtualActionPerformed(evt);
             }
         });
 
@@ -221,25 +216,25 @@ public class telaAdminCarros extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel11.setText("Ano:");
 
-        comboUfDados.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005" }));
+        comboAno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005" }));
 
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel15.setText("Revisão:");
 
-        txtNumeroDados.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtNumeroDados.addActionListener(new java.awt.event.ActionListener() {
+        txtKmRevisao.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtKmRevisao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNumeroDadosActionPerformed(evt);
+                txtKmRevisaoActionPerformed(evt);
             }
         });
 
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel16.setText("Valor aluguel:");
 
-        txtComplementoDados.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtComplementoDados.addActionListener(new java.awt.event.ActionListener() {
+        txtValorAluguel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtValorAluguel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtComplementoDadosActionPerformed(evt);
+                txtValorAluguelActionPerformed(evt);
             }
         });
 
@@ -250,14 +245,14 @@ public class telaAdminCarros extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1.0", "1.3", "1.4", "1.5", "1.6", "1.8", "1.9", "2.0", "2.2", "2.4", "3.0", "3.3", "4.1" }));
+        comboCilindrada.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1.0", "1.3", "1.4", "1.5", "1.6", "1.8", "1.9", "2.0", "2.2", "2.4", "3.0", "3.3", "4.1" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alcóol", "Gasolina", "Flex", "Diesel" }));
+        comboCombustivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alcóol", "Gasolina", "Flex", "Diesel" }));
 
         jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel19.setText("Status:");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponível", "Alugado", "Em manutenção" }));
+        comboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponível", "Alugado", "Em manutenção" }));
 
         javax.swing.GroupLayout painelDadosPessoaisLayout = new javax.swing.GroupLayout(painelDadosPessoais);
         painelDadosPessoais.setLayout(painelDadosPessoaisLayout);
@@ -269,25 +264,25 @@ public class telaAdminCarros extends javax.swing.JFrame {
                     .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtBairroDados, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtKmAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNumeroDados, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtKmRevisao, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtComplementoDados, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtValorAluguel, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(comboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
                         .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNomeDados))
+                                .addComponent(txtModelo))
                             .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -298,28 +293,28 @@ public class telaAdminCarros extends javax.swing.JFrame {
                     .addGroup(painelDadosPessoaisLayout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEmailDados, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCor, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCelularDados, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboCilindrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEnderecoDados, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtChassis, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboUfDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(306, Short.MAX_VALUE))
+                        .addComponent(comboCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(372, Short.MAX_VALUE))
         );
         painelDadosPessoaisLayout.setVerticalGroup(
             painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,34 +326,34 @@ public class telaAdminCarros extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNomeDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPesquisaNomeDadosPessoais))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmailDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(txtCelularDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEnderecoDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtChassis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
-                    .addComponent(comboUfDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboCilindrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtComplementoDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtValorAluguel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(comboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(painelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtBairroDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtKmAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtNumeroDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtKmRevisao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(127, Short.MAX_VALUE))
         );
 
@@ -632,25 +627,24 @@ public class telaAdminCarros extends javax.swing.JFrame {
     private void btnSalvarCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCadCliActionPerformed
         // TODO add your handling code here:
 
-      /*  try {
+        try {
 
-            Clientes obj = new Clientes();
-            obj.setNome(txtNomeDados.getText());
-            obj.setRg(txtRgDados.getText());
-            obj.setCpf(txtCpfDados.getText());
-            obj.setEmail(txtEmailDados.getText());
-            obj.setTelefone(txtTelefonedados.getText());
-            obj.setCelular(txtCelularDados.getText());
-            obj.setCep(txtCepDados.getText());
-            obj.setEndereco(txtEnderecoDados.getText());
-            obj.setNumero(Integer.parseInt(txtNumeroDados.getText()));
-            obj.setComplemento(txtComplementoDados.getText());
-            obj.setBairro(txtBairroDados.getText());
-            obj.setCidade(txtCidadeDados.getText());
-            obj.setUf(comboUfDados.getSelectedItem().toString());
+            Carro obj = new Carro();
+            obj.setChassi(txtChassis.getText());
+            obj.setPlaca(txtPlaca.getText());
+            obj.setModelo(txtModelo.getText());
+            obj.setAno(comboAno.getSelectedItem().toString());
+          
+            obj.setCor(txtCor.getText());
+            obj.setCilindrada(comboCilindrada.getSelectedItem().toString());
+            obj.setTipoCombustivel(comboCombustivel.getSelectedItem().toString());
+            obj.setValor_mensal(Double.parseDouble(txtValorAluguel.getText()));
+            obj.setKm_atual(Integer.parseInt(txtKmAtual.getText()));
+            obj.setKm_troca(Integer.parseInt(txtKmRevisao.getText()));
+          
             
-            ClientesDAO dao = new ClientesDAO();
-            dao.cadastrarCliente(obj);
+            CarroDAO dao = new CarroDAO();
+            dao.adiciona(obj);
                         new utilitarios().LimpaTela(painelDadosPessoais);
 
 
@@ -658,7 +652,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, e);
 
         }
-*/
+
 
     }//GEN-LAST:event_btnSalvarCadCliActionPerformed
 
@@ -861,27 +855,27 @@ public class telaAdminCarros extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnPesquisaNomeDadosPessoaisActionPerformed
 
-    private void txtComplementoDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComplementoDadosActionPerformed
+    private void txtValorAluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorAluguelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtComplementoDadosActionPerformed
+    }//GEN-LAST:event_txtValorAluguelActionPerformed
 
-    private void txtNumeroDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroDadosActionPerformed
+    private void txtKmRevisaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKmRevisaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumeroDadosActionPerformed
+    }//GEN-LAST:event_txtKmRevisaoActionPerformed
 
-    private void txtBairroDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBairroDadosActionPerformed
+    private void txtKmAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKmAtualActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtBairroDadosActionPerformed
+    }//GEN-LAST:event_txtKmAtualActionPerformed
 
-    private void txtEnderecoDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEnderecoDadosActionPerformed
+    private void txtChassisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtChassisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEnderecoDadosActionPerformed
+    }//GEN-LAST:event_txtChassisActionPerformed
 
-    private void txtEmailDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailDadosActionPerformed
+    private void txtCorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailDadosActionPerformed
+    }//GEN-LAST:event_txtCorActionPerformed
 
-    private void txtNomeDadosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeDadosKeyPressed
+    private void txtModeloKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtModeloKeyPressed
       /*  if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             try {
                 String nome = txtNomeDados.getText();
@@ -915,7 +909,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
             }
 
         }*/
-    }//GEN-LAST:event_txtNomeDadosKeyPressed
+    }//GEN-LAST:event_txtModeloKeyPressed
 
     private void txtCodigoDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoDadosActionPerformed
         // TODO add your handling code here:
@@ -1000,10 +994,10 @@ public class telaAdminCarros extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnPesquisaCliente2;
     private javax.swing.JButton btnPesquisaNomeDadosPessoais;
     private javax.swing.JButton btnSalvarCadCli;
-    private javax.swing.JComboBox<String> comboUfDados;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> comboAno;
+    private javax.swing.JComboBox<String> comboCilindrada;
+    private javax.swing.JComboBox<String> comboCombustivel;
+    private javax.swing.JComboBox<String> comboStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1032,16 +1026,16 @@ public class telaAdminCarros extends javax.swing.JFrame {
     private javax.swing.JTable tabelaDeClientes;
     private javax.swing.JTable tabelaDeClientes3;
     private javax.swing.JTable tabelaDeClientes4;
-    private javax.swing.JTextField txtBairroDados;
-    private javax.swing.JFormattedTextField txtCelularDados;
+    private javax.swing.JTextField txtChassis;
     private javax.swing.JTextField txtCodigoDados;
-    private javax.swing.JTextField txtComplementoDados;
-    private javax.swing.JTextField txtEmailDados;
-    private javax.swing.JTextField txtEnderecoDados;
+    private javax.swing.JTextField txtCor;
+    private javax.swing.JTextField txtKmAtual;
+    private javax.swing.JTextField txtKmRevisao;
+    private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtNomeConsultaCliente;
     private javax.swing.JTextField txtNomeConsultaCliente1;
     private javax.swing.JTextField txtNomeConsultaCliente2;
-    private javax.swing.JTextField txtNomeDados;
-    private javax.swing.JTextField txtNumeroDados;
+    private javax.swing.JTextField txtPlaca;
+    private javax.swing.JTextField txtValorAluguel;
     // End of variables declaration//GEN-END:variables
 }

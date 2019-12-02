@@ -42,7 +42,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel2.setText("Senha:");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENS/logo-DW-engrenagem530.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("/home/luiz/NetBeansProjects/FleetManagement/src/main/java/IMAGENS/logo-DW-engrenagem530.png")); // NOI18N
         jLabel3.setText("jLabel3");
 
         jButton1.setText("ENTRAR");
@@ -102,7 +102,7 @@ public class Login extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("GTK+".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

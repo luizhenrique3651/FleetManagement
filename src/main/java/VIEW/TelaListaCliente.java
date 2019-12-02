@@ -10,11 +10,12 @@ package VIEW;
  * @author luiz
  */
 public class TelaListaCliente extends javax.swing.JInternalFrame {
-
+    
     /**
      * Creates new form TelaListaCliente
      */
     public TelaListaCliente() {
+        
         initComponents();
     }
 
