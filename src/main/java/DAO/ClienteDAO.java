@@ -29,19 +29,41 @@ public class ClienteDAO {
 
     }
 
-    public void adiciona(Cliente cliente) {
-        String sql = "insert into cliente" + "(cpf,cnpj,nome,razao_social,endereco,fone)"
-                + "values(?,?,?,?,?,?)";
+    public void adicionaComCpf(Cliente cliente) {
+        String sql = "insert into cliente" + "(cpf,nome,razao_social,endereco,fone)"
+                + "values(?,?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
 
             stmt.setString(1, cliente.getCpf());
-            stmt.setString(2, cliente.getCnpj());
-            stmt.setString(3, cliente.getNome());
-            stmt.setString(4, cliente.getRazao_social());
-            stmt.setString(5, cliente.getEndereco());
-            stmt.setString(6, cliente.getFone());
+            stmt.setString(2, cliente.getNome());
+            stmt.setString(3, cliente.getRazao_social());
+            stmt.setString(4, cliente.getEndereco());
+            stmt.setString(5, cliente.getFone());
+            stmt.execute();
+            stmt.close();
+            JOptionPane.showMessageDialog(null, "inserido com sucesso!");
+        } catch (Exception e) {
 
+            JOptionPane.showMessageDialog(null, "ERRO: " + e);
+        }
+
+    }
+    
+     public void adicionaComCnpj(Cliente cliente) {
+        String sql = "insert into cliente" + "(cnpj,nome,razao_social,endereco,fone)"
+                + "values(?,?,?,?,?)";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+
+            stmt.setString(1, cliente.getCnpj());
+            stmt.setString(2, cliente.getNome());
+            stmt.setString(3, cliente.getRazao_social());
+            stmt.setString(4, cliente.getEndereco());
+            stmt.setString(5, cliente.getFone());
+            stmt.execute();
+            stmt.close();
+            JOptionPane.showMessageDialog(null, "inserido com sucesso!");
         } catch (Exception e) {
 
             JOptionPane.showMessageDialog(null, "ERRO: " + e);
@@ -62,6 +84,10 @@ public class ClienteDAO {
             stmt.setString(4, cliente.getRazao_social());
             stmt.setString(5, cliente.getEndereco());
             stmt.setString(6, cliente.getFone());
+            
+             stmt.execute();
+            stmt.close();
+            JOptionPane.showMessageDialog(null, "inserido com sucesso!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }

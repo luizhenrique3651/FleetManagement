@@ -5,6 +5,8 @@
  */
 package VIEW;
 
+import DAO.ClienteDAO;
+import MODEL.Cliente;
 import java.awt.event.ItemEvent;
 
 /**
@@ -34,11 +36,11 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
         lblRazao = new javax.swing.JLabel();
         txtRazao = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtNome2 = new javax.swing.JTextField();
+        txtCpfCnpj = new javax.swing.JTextField();
         comboTipo = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         lblRazao1 = new javax.swing.JLabel();
-        txtRazao1 = new javax.swing.JTextField();
+        txtEndereco = new javax.swing.JTextField();
         lblRazao2 = new javax.swing.JLabel();
         txtCelularDados = new javax.swing.JFormattedTextField();
         jButton1 = new javax.swing.JButton();
@@ -60,7 +62,7 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setText("CPF:");
 
-        txtNome2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtCpfCnpj.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         comboTipo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jurídica", "Pessoa física" }));
@@ -76,7 +78,7 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
         lblRazao1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblRazao1.setText("Endereço:");
 
-        txtRazao1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtEndereco.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         lblRazao2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblRazao2.setText("Fone:");
@@ -90,6 +92,11 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jButton1.setText("Cadastrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,7 +117,7 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(lblRazao1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtRazao1))
+                            .addComponent(txtEndereco))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(lblRazao2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -118,7 +125,7 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCpfCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -135,7 +142,7 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCpfCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -149,7 +156,7 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRazao1)
-                    .addComponent(txtRazao1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRazao2)
@@ -174,6 +181,32 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_comboTipoItemStateChanged
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+       
+        if(comboTipo.getSelectedItem().toString().equals("Jurídica")){
+             Cliente obj = new Cliente();
+        obj.setNome(txtNome.getText());
+        obj.setCnpj(txtCpfCnpj.getText());
+        obj.setEndereco(txtEndereco.getText());
+        obj.setFone(txtCelularDados.getText());
+        obj.setRazao_social(txtRazao.getText());
+        ClienteDAO dao = new ClienteDAO();
+        dao.adicionaComCnpj(obj);
+        
+        }else if(comboTipo.getSelectedItem().toString().equals("Pessoa física")){
+        Cliente obj = new Cliente();
+        obj.setNome(txtNome.getText());
+        obj.setCpf(txtCpfCnpj.getText());
+        obj.setEndereco(txtEndereco.getText());
+        obj.setFone(txtCelularDados.getText());
+        ClienteDAO dao = new ClienteDAO();
+        dao.adicionaComCpf(obj);
+    }
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboTipo;
@@ -185,9 +218,9 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblRazao1;
     private javax.swing.JLabel lblRazao2;
     private javax.swing.JFormattedTextField txtCelularDados;
+    private javax.swing.JTextField txtCpfCnpj;
+    private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtNome2;
     private javax.swing.JTextField txtRazao;
-    private javax.swing.JTextField txtRazao1;
     // End of variables declaration//GEN-END:variables
 }
