@@ -784,7 +784,8 @@ public class telaAdminCarros extends javax.swing.JFrame {
 
     private void tabelaDeClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaDeClientesMouseClicked
         // passar dados da tabela para o painel de Dados Pessoais
-    /*    painelDaTabelaClientes.setSelectedIndex(0);
+     /*
+        painelDaTabelaClientes.setSelectedIndex(0);
         txtCodigoDados.setText(tabelaDeClientes.getValueAt(tabelaDeClientes
             .getSelectedRow(), 0).toString());
 

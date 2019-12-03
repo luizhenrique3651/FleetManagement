@@ -10,13 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-public class FrotaDAO {
+public class ContratoDAO {
     private Connection connection;
-    /*
-	public FrotaDAO() {
+    
+	public ContratoDAO() {
 		this.connection = new ConnectionFactory().getConnection();
 
 	}
+        /*
 public void adiciona(Estoque estoque ){
 		String sql = "insert into estoque" + "(descricao,preco,quantidade)" + "values (?, ?, ?)";
 		try {
@@ -67,24 +68,30 @@ public void remove(Estoque estoque) {
 			JOptionPane.showMessageDialog(null, e);
 		}
 	}
-public List<Estoque> getLista() {
+
+*/
+public List<Contrato> getLista() {
 		try {
 
-			PreparedStatement stmt = this.connection.prepareStatement("select * from estoque");
+	PreparedStatement stmt = this.connection.prepareStatement("SELECT "
+                + "contrato.id_contrato, contrato.valor_anual, carro.Modelo, cliente.nome\n" +
+                   "FROM   contrato \n" +
+                    "INNER JOIN carro   ON contrato.id_carro   = carro.id_carro\n" +
+                    "INNER JOIN cliente ON contrato.id_cliente = cliente.id_cliente;");
 			ResultSet rs = stmt.executeQuery();
-			List<Estoque> estoques = new ArrayList<Estoque>();
+			List<Contrato> contratos = new ArrayList<Contrato>();
 			while (rs.next()) {
-				Estoque estoque = new Estoque();
-				estoque.setId_produto(rs.getInt("id_produto"));
-				estoque.setDescricao(rs.getString("descricao"));
-                                estoque.setPreco(rs.getDouble("preco"));
-                                estoque.setQuantidade(rs.getInt("quantidade"));
+				Contrato cont = new Contrato();
+				cont.setId_contrato(rs.getInt("id_contrato"));
+				cont.setValor_anual(rs.getDouble("valor_anual"));
+                                cont.setModelo(rs.getString("modelo"));
+                                cont.setNome(rs.getString("nome"));
 
-				estoques.add(estoque);
+				contratos.add(cont);
 			}
 			rs.close();
 			stmt.close();
-			return estoques;
+			return contratos;
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e);
                            return null;
@@ -92,6 +99,7 @@ public List<Estoque> getLista() {
      
            
 	}
+/*
  public List<Estoque> buscaProdutoPorNome(String nome){
     
        try {

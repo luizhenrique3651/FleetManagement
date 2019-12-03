@@ -5,6 +5,13 @@
  */
 package VIEW;
 
+import DAO.CarroDAO;
+import DAO.ClienteDAO;
+import MODEL.Carro;
+import MODEL.Cliente;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author luiz
@@ -14,6 +21,65 @@ public class TelaListaCliente extends javax.swing.JInternalFrame {
     /**
      * Creates new form TelaListaCliente
      */
+    
+    //listando dados da tabela
+    public void listarComCpf(){
+    
+        ClienteDAO dao = new ClienteDAO();
+    List<Cliente> lista = dao.getListaComCpf();
+        
+    DefaultTableModel dados = (DefaultTableModel) tabelaDeClientes.getModel();
+    dados.setNumRows(0);
+    
+    
+    for(Cliente c: lista){
+        
+        dados.addRow(new Object[]{
+            c.getId_cliente(),
+            c.getCpf(),
+            c.getNome(),
+            c.getRazao_social(),
+            c.getEndereco(),
+            c.getFone(),
+                          
+            
+                
+        });
+    
+    }
+    
+        
+    
+    }
+        public void listarComCnpj(){
+    
+        ClienteDAO dao = new ClienteDAO();
+    List<Cliente> lista = dao.getListaComCnpj();
+        
+    DefaultTableModel dados = (DefaultTableModel) tabelaDeClientes.getModel();
+    dados.setNumRows(0);
+    
+    
+    for(Cliente c: lista){
+        
+        dados.addRow(new Object[]{
+            c.getId_cliente(),
+            c.getCnpj(),
+            c.getNome(),
+            c.getRazao_social(),
+            c.getEndereco(),
+            c.getFone(),
+                          
+            
+                
+        });
+    
+    }
+    
+        
+    
+    }
+    
     public TelaListaCliente() {
         
         initComponents();
@@ -29,7 +95,7 @@ public class TelaListaCliente extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabela = new javax.swing.JTable();
+        tabelaDeClientes = new javax.swing.JTable();
         comboTipo = new javax.swing.JComboBox<>();
         lblRazao2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -38,18 +104,37 @@ public class TelaListaCliente extends javax.swing.JInternalFrame {
         lblRazao = new javax.swing.JLabel();
         txtRazao = new javax.swing.JTextField();
         lblTipoCli = new javax.swing.JLabel();
-        txtNome2 = new javax.swing.JTextField();
+        txtCpfCnpj = new javax.swing.JTextField();
         lblRazao1 = new javax.swing.JLabel();
-        txtRazao1 = new javax.swing.JTextField();
+        txtEndereco = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
-        tabela.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaDeClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -60,7 +145,12 @@ public class TelaListaCliente extends javax.swing.JInternalFrame {
                 "ID", "CPF", "Nome", "Razão social", "Endereço", "Fone"
             }
         ));
-        jScrollPane1.setViewportView(tabela);
+        tabelaDeClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaDeClientesMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tabelaDeClientes);
 
         comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pessoa Física", "Pessoa Jurídica" }));
         comboTipo.addItemListener(new java.awt.event.ItemListener() {
@@ -92,16 +182,26 @@ public class TelaListaCliente extends javax.swing.JInternalFrame {
         lblTipoCli.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblTipoCli.setText("CPF:");
 
-        txtNome2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtCpfCnpj.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         lblRazao1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblRazao1.setText("Endereço:");
 
-        txtRazao1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtEndereco.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         jButton1.setText("Excluir");
 
-        jButton2.setText("Editar");
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setText("ID:");
+
+        txtId.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,8 +220,12 @@ public class TelaListaCliente extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblTipoCli)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtNome2)
-                                        .addGap(283, 283, 283))
+                                        .addComponent(txtCpfCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -133,19 +237,19 @@ public class TelaListaCliente extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblRazao1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtRazao1))
+                                        .addComponent(txtEndereco))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblRazao2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtCelularDados, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                                        .addComponent(txtCelularDados, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                                         .addGap(243, 243, 243))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
-                                .addComponent(jButton2)
+                                .addComponent(btnEditar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton1)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -159,9 +263,14 @@ public class TelaListaCliente extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblTipoCli)
-                            .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblTipoCli)
+                                .addComponent(txtCpfCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtId)
+                                .addGap(2, 2, 2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -173,7 +282,7 @@ public class TelaListaCliente extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblRazao1)
-                            .addComponent(txtRazao1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblRazao2)
@@ -181,26 +290,31 @@ public class TelaListaCliente extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
-                            .addComponent(jButton2))
+                            .addComponent(btnEditar))
                         .addGap(29, 29, 29))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+   
+     
     private void comboTipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboTipoItemStateChanged
         
-           if(comboTipo.getSelectedItem().equals("Pessoa Física")){
+          if(comboTipo.getSelectedItem().equals("Pessoa Física")){
                
                //mudando nome da coluna da tabela e da label
-        tabela.getColumnModel().getColumn(1).setHeaderValue("CPF");
-        tabela.getTableHeader().resizeAndRepaint();
+        tabelaDeClientes.getColumnModel().getColumn(1).setHeaderValue("CPF");
+        tabelaDeClientes.getTableHeader().resizeAndRepaint();
         lblTipoCli.setText("CPF:");
+        txtRazao.setEnabled(false);
+        listarComCpf();
 
         }else if(comboTipo.getSelectedItem().equals("Pessoa Jurídica")) {
-         tabela.getColumnModel().getColumn(1).setHeaderValue("CNPJ");
-         tabela.getTableHeader().resizeAndRepaint();
+         tabelaDeClientes.getColumnModel().getColumn(1).setHeaderValue("CNPJ");
+         tabelaDeClientes.getTableHeader().resizeAndRepaint();
          lblTipoCli.setText("CNPJ:");
+         
+         listarComCnpj();
 
         }
         
@@ -208,22 +322,99 @@ public class TelaListaCliente extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_comboTipoItemStateChanged
 
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+          
+        
+        if(comboTipo.getSelectedItem().equals("Pessoa Física")){
+               
+               //mudando nome da coluna da tabela e da label
+        tabelaDeClientes.getColumnModel().getColumn(1).setHeaderValue("CPF");
+        tabelaDeClientes.getTableHeader().resizeAndRepaint();
+        lblTipoCli.setText("CPF:");
+        listarComCpf();
+
+        }else if(comboTipo.getSelectedItem().equals("Pessoa Jurídica")) {
+         tabelaDeClientes.getColumnModel().getColumn(1).setHeaderValue("CNPJ");
+         tabelaDeClientes.getTableHeader().resizeAndRepaint();
+         lblTipoCli.setText("CNPJ:");
+         listarComCnpj();
+
+        }
+          
+        
+    }//GEN-LAST:event_formInternalFrameActivated
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+       
+        Cliente cli = new Cliente();
+        cli.setId_cliente(Integer.parseInt(txtId.getText()));
+        cli.setNome(txtNome.getText());
+        cli.setEndereco(txtEndereco.getText());
+        cli.setFone(txtCelularDados.getText());
+        ClienteDAO dao = new ClienteDAO();
+             if(comboTipo.getSelectedItem().equals("Pessoa Física")){
+        cli.setCpf(txtCpfCnpj.getText());
+        dao.alteraComCpf(cli);   
+        
+         }else if(comboTipo.getSelectedItem().equals("Pessoa Jurídica")){
+             cli.setCnpj(txtCpfCnpj.getText());
+             cli.setRazao_social(txtRazao.getText());
+             dao.alteraComCnpj(cli);
+         }
+    }//GEN-LAST:event_btnEditarActionPerformed
+             
+    private void tabelaDeClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaDeClientesMouseClicked
+       
+        if(comboTipo.getSelectedItem().equals("Pessoa Física")){
+        txtId.setText(tabelaDeClientes.getValueAt(tabelaDeClientes
+                .getSelectedRow(), 0).toString());
+
+    txtCpfCnpj.setText(tabelaDeClientes.getValueAt(tabelaDeClientes
+        .getSelectedRow(), 1).toString());
+        txtNome.setText(tabelaDeClientes.getValueAt(tabelaDeClientes
+            .getSelectedRow(), 2).toString());
+         txtEndereco.setText(tabelaDeClientes.getValueAt(tabelaDeClientes.
+            getSelectedRow(), 4).toString());
+    txtCelularDados.setText(tabelaDeClientes.getValueAt(tabelaDeClientes.
+            getSelectedRow(), 5).toString());
+        }else if(comboTipo.getSelectedItem().equals("Pessoa Jurídica")){
+       
+        
+        txtId.setText(tabelaDeClientes.getValueAt(tabelaDeClientes
+                .getSelectedRow(), 0).toString());
+
+    txtCpfCnpj.setText(tabelaDeClientes.getValueAt(tabelaDeClientes
+        .getSelectedRow(), 1).toString());
+        txtNome.setText(tabelaDeClientes.getValueAt(tabelaDeClientes
+            .getSelectedRow(), 2).toString());
+    txtRazao.setText(tabelaDeClientes.getValueAt(tabelaDeClientes
+        .getSelectedRow(), 3).toString());
+    txtEndereco.setText(tabelaDeClientes.getValueAt(tabelaDeClientes.
+            getSelectedRow(), 4).toString());
+    txtCelularDados.setText(tabelaDeClientes.getValueAt(tabelaDeClientes.
+            getSelectedRow(), 5).toString());
+        }
+        
+    }//GEN-LAST:event_tabelaDeClientesMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEditar;
     private javax.swing.JComboBox<String> comboTipo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblRazao;
     private javax.swing.JLabel lblRazao1;
     private javax.swing.JLabel lblRazao2;
     private javax.swing.JLabel lblTipoCli;
-    private javax.swing.JTable tabela;
+    private javax.swing.JTable tabelaDeClientes;
     private javax.swing.JFormattedTextField txtCelularDados;
+    private javax.swing.JTextField txtCpfCnpj;
+    private javax.swing.JTextField txtEndereco;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtNome2;
     private javax.swing.JTextField txtRazao;
-    private javax.swing.JTextField txtRazao1;
     // End of variables declaration//GEN-END:variables
 }

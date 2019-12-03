@@ -71,19 +71,43 @@ public class ClienteDAO {
 
     }
 
-    public void altera(Cliente cliente) {
-        String sql = "update cliente set cpf=?, cnpj=?, nome=?, razao_social=?, endereco=?, fone=?, where id_cliente=?";
+    public void alteraComCnpj(Cliente cliente) {
+        String sql = "update cliente set cnpj=?, nome=?, razao_social=?, endereco=?, fone=? where id_cliente=?";
+
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(sql);
+
+            
+            stmt.setString(1, cliente.getCnpj());
+            stmt.setString(2, cliente.getNome());
+            stmt.setString(3, cliente.getRazao_social());
+            stmt.setString(4, cliente.getEndereco());
+            stmt.setString(5, cliente.getFone());
+            stmt.setInt(6, cliente.getId_cliente());
+
+            
+             stmt.execute();
+            stmt.close();
+            JOptionPane.showMessageDialog(null, "inserido com sucesso!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+    public void alteraComCpf(Cliente cliente) {
+        String sql = "update cliente set cpf=?, nome=?, razao_social=?, endereco=?, fone=? where id_cliente=?";
 
         try {
 
             PreparedStatement stmt = connection.prepareStatement(sql);
 
             stmt.setString(1, cliente.getCpf());
-            stmt.setString(2, cliente.getCnpj());
-            stmt.setString(3, cliente.getNome());
-            stmt.setString(4, cliente.getRazao_social());
-            stmt.setString(5, cliente.getEndereco());
-            stmt.setString(6, cliente.getFone());
+            stmt.setString(2, cliente.getNome());
+            stmt.setString(3, cliente.getRazao_social());
+            stmt.setString(4, cliente.getEndereco());
+            stmt.setString(5, cliente.getFone());
+            stmt.setInt(6, cliente.getId_cliente());
             
              stmt.execute();
             stmt.close();
@@ -109,21 +133,49 @@ public class ClienteDAO {
         }
     }
 
-    public List<Cliente> getLista() {
+    public List<Cliente> getListaComCpf() {
         try {
 
-            PreparedStatement stmt = this.connection.prepareStatement("select * from cliente");
+            PreparedStatement stmt = this.connection.prepareStatement("select * from cliente where cpf is not null");
             ResultSet rs = stmt.executeQuery();
             List<Cliente> clientes = new ArrayList<Cliente>();
             while (rs.next()) {
                 Cliente cliente = new Cliente();
                 cliente.setId_cliente(rs.getInt("id_cliente"));
-                cliente.setNome(rs.getString("Nome"));
-                cliente.setCpf(rs.getString("Cpf"));
-                cliente.setCnpj(rs.getString("Cnpj"));
-                cliente.setRazao_social(rs.getString("Razão Social"));
-                cliente.setEndereco(rs.getString("Endereço"));
-                cliente.setFone(rs.getString("Fone"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setCnpj(rs.getString("cnpj"));
+                cliente.setRazao_social(rs.getString("razao_social"));
+                cliente.setEndereco(rs.getString("endereco"));
+                cliente.setFone(rs.getString("fone"));
+
+                clientes.add(cliente);
+            }
+            rs.close();
+            stmt.close();
+            return clientes;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+        }
+
+    }
+    
+     public List<Cliente> getListaComCnpj() {
+        try {
+
+            PreparedStatement stmt = this.connection.prepareStatement("select * from cliente where cnpj is not null ");
+            ResultSet rs = stmt.executeQuery();
+            List<Cliente> clientes = new ArrayList<Cliente>();
+            while (rs.next()) {
+                Cliente cliente = new Cliente();
+                cliente.setId_cliente(rs.getInt("id_cliente"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setCnpj(rs.getString("cnpj"));
+                cliente.setRazao_social(rs.getString("razao_social"));
+                cliente.setEndereco(rs.getString("endereco"));
+                cliente.setFone(rs.getString("fone"));
 
                 clientes.add(cliente);
             }

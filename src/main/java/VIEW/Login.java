@@ -5,6 +5,8 @@
  */
 package VIEW;
 
+import java.awt.Color;
+
 /**
  *
  * @author luiz
@@ -16,6 +18,8 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+         
+       
     }
 
     /**
