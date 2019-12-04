@@ -35,7 +35,7 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
         txtNome = new javax.swing.JTextField();
         lblRazao = new javax.swing.JLabel();
         txtRazao = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        lblCpfCnpj = new javax.swing.JLabel();
         txtCpfCnpj = new javax.swing.JTextField();
         comboTipo = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
@@ -43,11 +43,12 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
         txtEndereco = new javax.swing.JTextField();
         lblRazao2 = new javax.swing.JLabel();
         txtCelularDados = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
+        btnCadastro = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Cadastro de clientes");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Nome:");
@@ -59,8 +60,8 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
 
         txtRazao.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setText("CPF:");
+        lblCpfCnpj.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblCpfCnpj.setText("CNPJ:");
 
         txtCpfCnpj.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
@@ -90,11 +91,11 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
         }
         txtCelularDados.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastro.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnCadastro.setText("Cadastrar");
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCadastroActionPerformed(evt);
             }
         });
 
@@ -123,7 +124,7 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(txtCelularDados, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(lblCpfCnpj)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCpfCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -133,7 +134,7 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnCadastro)
                 .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
@@ -141,7 +142,7 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(lblCpfCnpj)
                     .addComponent(txtCpfCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
@@ -162,7 +163,7 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
                     .addComponent(lblRazao2)
                     .addComponent(txtCelularDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnCadastro)
                 .addGap(27, 27, 27))
         );
 
@@ -171,49 +172,49 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
 
     private void comboTipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboTipoItemStateChanged
 
-        if(comboTipo.getSelectedItem().equals("Pessoa física")){
-        txtRazao.setEnabled(false);
-        lblRazao.setEnabled(false);
-        }else{
+       if(comboTipo.getSelectedItem().equals("Jurídica")){
         txtRazao.setEnabled(true);
         lblRazao.setEnabled(true);
+        lblCpfCnpj.setText("CNPJ:");
+        }else if(comboTipo.getSelectedItem().equals("Pessoa física")){
+        txtRazao.setEnabled(false);
+        lblRazao.setEnabled(false);
+        lblCpfCnpj.setText("CPF:");
         }
-
     }//GEN-LAST:event_comboTipoItemStateChanged
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
         
-       
+                    Cliente obj = new Cliente();
+                    ClienteDAO dao = new ClienteDAO();
+
         if(comboTipo.getSelectedItem().toString().equals("Jurídica")){
-             Cliente obj = new Cliente();
         obj.setNome(txtNome.getText());
         obj.setCnpj(txtCpfCnpj.getText());
         obj.setEndereco(txtEndereco.getText());
         obj.setFone(txtCelularDados.getText());
         obj.setRazao_social(txtRazao.getText());
-        ClienteDAO dao = new ClienteDAO();
         dao.adicionaComCnpj(obj);
         
         }else if(comboTipo.getSelectedItem().toString().equals("Pessoa física")){
-        Cliente obj = new Cliente();
+        
         obj.setNome(txtNome.getText());
         obj.setCpf(txtCpfCnpj.getText());
         obj.setEndereco(txtEndereco.getText());
         obj.setFone(txtCelularDados.getText());
-        ClienteDAO dao = new ClienteDAO();
         dao.adicionaComCpf(obj);
     }
         
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCadastroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastro;
     private javax.swing.JComboBox<String> comboTipo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lblCpfCnpj;
     private javax.swing.JLabel lblRazao;
     private javax.swing.JLabel lblRazao1;
     private javax.swing.JLabel lblRazao2;

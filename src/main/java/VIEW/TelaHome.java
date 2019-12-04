@@ -37,19 +37,22 @@ public class TelaHome extends javax.swing.JFrame {
         selecTema = new javax.swing.JComboBox<>();
         tema = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        MenuCliente = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        MenuContrato = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        menuFerramenta = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
+        menuVeiculo = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Homescreen");
         setBackground(new java.awt.Color(0, 0, 0));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -65,7 +68,7 @@ public class TelaHome extends javax.swing.JFrame {
         );
         DesktopLayout.setVerticalGroup(
             DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 509, Short.MAX_VALUE)
+            .addGap(0, 511, Short.MAX_VALUE)
         );
 
         selecTema.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nimbus", "GTK+" }));
@@ -77,7 +80,9 @@ public class TelaHome extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("Clientes");
+        jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+
+        MenuCliente.setText("Clientes");
 
         jMenuItem1.setText("Cadastro");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +90,7 @@ public class TelaHome extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        MenuCliente.add(jMenuItem1);
 
         jMenuItem2.setText("Listagem");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -93,11 +98,11 @@ public class TelaHome extends javax.swing.JFrame {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        MenuCliente.add(jMenuItem2);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(MenuCliente);
 
-        jMenu2.setText("Contratos");
+        MenuContrato.setText("Contratos");
 
         jMenuItem3.setText("Cadastro");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +110,7 @@ public class TelaHome extends javax.swing.JFrame {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        MenuContrato.add(jMenuItem3);
 
         jMenuItem4.setText("Listagem");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -113,17 +118,17 @@ public class TelaHome extends javax.swing.JFrame {
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem4);
+        MenuContrato.add(jMenuItem4);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(MenuContrato);
 
-        jMenu3.setText("Ferramentas");
+        menuFerramenta.setText("Ferramentas");
 
         jMenuItem5.setText("Editar login");
-        jMenu3.add(jMenuItem5);
+        menuFerramenta.add(jMenuItem5);
 
         jMenuItem6.setText("Criar conta");
-        jMenu3.add(jMenuItem6);
+        menuFerramenta.add(jMenuItem6);
 
         jMenuItem7.setText("Tema");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
@@ -131,9 +136,21 @@ public class TelaHome extends javax.swing.JFrame {
                 jMenuItem7ActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem7);
+        menuFerramenta.add(jMenuItem7);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(menuFerramenta);
+
+        menuVeiculo.setText("Veículos");
+
+        jMenuItem8.setText("Controle");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        menuVeiculo.add(jMenuItem8);
+
+        jMenuBar1.add(menuVeiculo);
 
         jMenu4.setText("Sobre");
         jMenuBar1.add(jMenu4);
@@ -167,20 +184,6 @@ public class TelaHome extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        TelaCadastroCliente cad = new TelaCadastroCliente();
-        Desktop.add(cad);
-        cad.show();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-       
-        TelaListaCliente cad = new TelaListaCliente();
-        Desktop.add(cad);
-        cad.show();
-        
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
          
@@ -227,6 +230,25 @@ try {
         }        // TODO add your handling code here:
     }//GEN-LAST:event_temaActionPerformed
 
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+            telaAdminCarros carros = new telaAdminCarros();
+            carros.setVisible(true);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+
+        TelaListaCliente cad = new TelaListaCliente();
+        Desktop.add(cad);
+        cad.show();
+
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        TelaCadastroCliente cad = new TelaCadastroCliente();
+        Desktop.add(cad);
+        cad.show();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -265,9 +287,8 @@ try {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Desktop;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu MenuCliente;
+    private javax.swing.JMenu MenuContrato;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -277,6 +298,9 @@ try {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenu menuFerramenta;
+    private javax.swing.JMenu menuVeiculo;
     private javax.swing.JComboBox<String> selecTema;
     private javax.swing.JButton tema;
     // End of variables declaration//GEN-END:variables

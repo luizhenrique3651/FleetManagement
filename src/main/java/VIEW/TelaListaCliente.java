@@ -116,6 +116,7 @@ public class TelaListaCliente extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Listagem de clientes");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -178,6 +179,7 @@ public class TelaListaCliente extends javax.swing.JInternalFrame {
         lblRazao.setText("Razão social:");
 
         txtRazao.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtRazao.setEnabled(false);
 
         lblTipoCli.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblTipoCli.setText("CPF:");
@@ -313,6 +315,7 @@ public class TelaListaCliente extends javax.swing.JInternalFrame {
          tabelaDeClientes.getColumnModel().getColumn(1).setHeaderValue("CNPJ");
          tabelaDeClientes.getTableHeader().resizeAndRepaint();
          lblTipoCli.setText("CNPJ:");
+         txtRazao.setEnabled(true);
          
          listarComCnpj();
 
