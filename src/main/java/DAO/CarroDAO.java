@@ -97,7 +97,7 @@ public class CarroDAO {
     public List<Carro> getLista() {
         try {
 
-            PreparedStatement stmt = this.connection.prepareStatement("select * from carro");
+            PreparedStatement stmt = this.connection.prepareStatement("select * from carro order by disponivel ASC");
             ResultSet rs = stmt.executeQuery();
             List<Carro> carros = new ArrayList<Carro>();
             while (rs.next()) {
@@ -113,6 +113,40 @@ public class CarroDAO {
                 carro.setValor_mensal(rs.getDouble("valor_mensal"));
                 carro.setKm_atual(rs.getInt("km_atual"));
                 carro.setKm_troca(rs.getInt("km_troca"));
+                carro.setDisponivel(rs.getString("disponivel"));
+
+                carros.add(carro);
+            }
+            rs.close();
+            stmt.close();
+            return carros;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+        }
+
+    }
+    
+     public List<Carro> getListaDisponivel() {
+        try {
+
+            PreparedStatement stmt = this.connection.prepareStatement("select * from carro where disponivel like '%Disponível%'");
+            ResultSet rs = stmt.executeQuery();
+            List<Carro> carros = new ArrayList<Carro>();
+            while (rs.next()) {
+                Carro carro = new Carro();
+                carro.setId_carro(rs.getInt("id_carro"));
+                carro.setChassi(rs.getString("chassi"));
+                carro.setPlaca(rs.getString("placa"));
+                carro.setModelo(rs.getString("modelo"));
+                carro.setAno(rs.getString("ano"));
+                carro.setCor(rs.getString("cor"));
+                carro.setCilindrada(rs.getString("cilindrada"));
+                carro.setTipoCombustivel(rs.getString("tipoCombustivel"));
+                carro.setValor_mensal(rs.getDouble("valor_mensal"));
+                carro.setKm_atual(rs.getInt("km_atual"));
+                carro.setKm_troca(rs.getInt("km_troca"));
+                carro.setDisponivel(rs.getString("disponivel"));
 
                 carros.add(carro);
             }
@@ -161,5 +195,23 @@ public class CarroDAO {
             return null;
         }
 
+    }
+    
+    public void atualizaDisponibilidade(Carro carro){
+    
+        String sql = "update carro set disponivel=? where id_carro=?";
+        
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            
+            stmt.setInt(1, carro.getId_carro());
+            
+            stmt.execute();
+            stmt.close();
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
     }
 }

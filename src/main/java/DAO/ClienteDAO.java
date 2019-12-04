@@ -188,6 +188,33 @@ public class ClienteDAO {
         }
 
     }
+     public List<Cliente> getLista() {
+        try {
+
+            PreparedStatement stmt = this.connection.prepareStatement("select * from cliente");
+            ResultSet rs = stmt.executeQuery();
+            List<Cliente> clientes = new ArrayList<Cliente>();
+            while (rs.next()) {
+                Cliente cliente = new Cliente();
+                cliente.setId_cliente(rs.getInt("id_cliente"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setCnpj(rs.getString("cnpj"));
+                cliente.setRazao_social(rs.getString("razao_social"));
+                cliente.setEndereco(rs.getString("endereco"));
+                cliente.setFone(rs.getString("fone"));
+
+                clientes.add(cliente);
+            }
+            rs.close();
+            stmt.close();
+            return clientes;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+        }
+
+    }
 
   public List<Cliente> buscaProdutoPorCpf(String cpf) {
 

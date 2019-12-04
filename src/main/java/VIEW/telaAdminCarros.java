@@ -109,12 +109,6 @@ public class telaAdminCarros extends javax.swing.JFrame {
         btnPesquisaCliente1 = new javax.swing.JToggleButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tabelaDeClientes3 = new javax.swing.JTable();
-        painelConsultaClientes2 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        txtNomeConsultaCliente2 = new javax.swing.JTextField();
-        btnPesquisaCliente2 = new javax.swing.JToggleButton();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        tabelaDeClientes4 = new javax.swing.JTable();
         btnSalvarCadCli = new javax.swing.JButton();
         btnNovoCadCli = new javax.swing.JButton();
         btnExcluirCadCli = new javax.swing.JButton();
@@ -491,73 +485,6 @@ public class telaAdminCarros extends javax.swing.JFrame {
 
         painelDaTabelaClientes.addTab("Consulta disponibilidade de frota", painelConsultaClientes1);
 
-        jLabel18.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel18.setText("Modelo:");
-
-        txtNomeConsultaCliente2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeConsultaCliente2ActionPerformed(evt);
-            }
-        });
-        txtNomeConsultaCliente2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtNomeConsultaCliente2KeyPressed(evt);
-            }
-        });
-
-        btnPesquisaCliente2.setText("Pesquisar");
-        btnPesquisaCliente2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisaCliente2ActionPerformed(evt);
-            }
-        });
-
-        tabelaDeClientes4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Código", "Modelo", "Placa", "Chassis", "Cor", "Cilindrada", "Combustível", "Ano", "KM atual", "KM revisão", "Valor mensal", "Status"
-            }
-        ));
-        tabelaDeClientes4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaDeClientes4MouseClicked(evt);
-            }
-        });
-        jScrollPane5.setViewportView(tabelaDeClientes4);
-
-        javax.swing.GroupLayout painelConsultaClientes2Layout = new javax.swing.GroupLayout(painelConsultaClientes2);
-        painelConsultaClientes2.setLayout(painelConsultaClientes2Layout);
-        painelConsultaClientes2Layout.setHorizontalGroup(
-            painelConsultaClientes2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelConsultaClientes2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNomeConsultaCliente2, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPesquisaCliente2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(869, Short.MAX_VALUE))
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING)
-        );
-        painelConsultaClientes2Layout.setVerticalGroup(
-            painelConsultaClientes2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelConsultaClientes2Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(painelConsultaClientes2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNomeConsultaCliente2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisaCliente2)
-                    .addComponent(jLabel18))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE))
-        );
-
-        painelDaTabelaClientes.addTab("Consulta revisão de frota", painelConsultaClientes2);
-
         btnSalvarCadCli.setText("SALVAR");
         btnSalvarCadCli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -712,10 +639,26 @@ public class telaAdminCarros extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowActivated
 
+    private void tabelaDeClientes3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaDeClientes3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabelaDeClientes3MouseClicked
+
+    private void btnPesquisaCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaCliente1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesquisaCliente1ActionPerformed
+
+    private void txtNomeConsultaCliente1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeConsultaCliente1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeConsultaCliente1KeyPressed
+
+    private void txtNomeConsultaCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeConsultaCliente1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeConsultaCliente1ActionPerformed
+
     private void btnPesquisaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaClienteActionPerformed
         // Botao pesquisar na tabela de clientes
 
-     /*
+        /*
         String nome = "%"+txtNomeConsultaCliente.getText()+"%";
         ClientesDAO dao = new ClientesDAO();
         List<Clientes> lista = dao.buscaClientePorNome(nome);
@@ -748,7 +691,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
 
     private void txtNomeConsultaClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeConsultaClienteKeyPressed
         // Pesquisa enquanto digita
-      /*
+        /*
         String nome = "%"+txtNomeConsultaCliente.getText()+"%";
         ClientesDAO dao = new ClientesDAO();
         List<Clientes> lista = dao.buscaClientePorNome(nome);
@@ -784,7 +727,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
 
     private void tabelaDeClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaDeClientesMouseClicked
         // passar dados da tabela para o painel de Dados Pessoais
-     /*
+        /*
         painelDaTabelaClientes.setSelectedIndex(0);
         txtCodigoDados.setText(tabelaDeClientes.getValueAt(tabelaDeClientes
             .getSelectedRow(), 0).toString());
@@ -815,12 +758,12 @@ public class telaAdminCarros extends javax.swing.JFrame {
             .getSelectedRow(), 12).toString());
     comboUfDados.setSelectedItem(tabelaDeClientes.getValueAt(tabelaDeClientes
         .getSelectedRow(), 13).toString());
-*/
+        */
     }//GEN-LAST:event_tabelaDeClientesMouseClicked
 
     private void btnPesquisaNomeDadosPessoaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaNomeDadosPessoaisActionPerformed
         // Pesquisar na tela dados pessoais
-     /*   try {
+        /*   try {
             String nome = txtNomeDados.getText();
             Clientes obj = new Clientes();
             ClientesDAO dao = new ClientesDAO();
@@ -851,7 +794,6 @@ public class telaAdminCarros extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
         */
-
     }//GEN-LAST:event_btnPesquisaNomeDadosPessoaisActionPerformed
 
     private void txtValorAluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorAluguelActionPerformed
@@ -875,7 +817,7 @@ public class telaAdminCarros extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorActionPerformed
 
     private void txtModeloKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtModeloKeyPressed
-      /*  if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        /*  if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             try {
                 String nome = txtNomeDados.getText();
                 Clientes obj = new Clientes();
@@ -913,38 +855,6 @@ public class telaAdminCarros extends javax.swing.JFrame {
     private void txtCodigoDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoDadosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoDadosActionPerformed
-
-    private void txtNomeConsultaCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeConsultaCliente1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeConsultaCliente1ActionPerformed
-
-    private void txtNomeConsultaCliente1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeConsultaCliente1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeConsultaCliente1KeyPressed
-
-    private void btnPesquisaCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaCliente1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPesquisaCliente1ActionPerformed
-
-    private void txtNomeConsultaCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeConsultaCliente2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeConsultaCliente2ActionPerformed
-
-    private void txtNomeConsultaCliente2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeConsultaCliente2KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeConsultaCliente2KeyPressed
-
-    private void btnPesquisaCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaCliente2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPesquisaCliente2ActionPerformed
-
-    private void tabelaDeClientes3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaDeClientes3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tabelaDeClientes3MouseClicked
-
-    private void tabelaDeClientes4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaDeClientes4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tabelaDeClientes4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -990,7 +900,6 @@ public class telaAdminCarros extends javax.swing.JFrame {
     private javax.swing.JButton btnNovoCadCli;
     private javax.swing.JToggleButton btnPesquisaCliente;
     private javax.swing.JToggleButton btnPesquisaCliente1;
-    private javax.swing.JToggleButton btnPesquisaCliente2;
     private javax.swing.JButton btnPesquisaNomeDadosPessoais;
     private javax.swing.JButton btnSalvarCadCli;
     private javax.swing.JComboBox<String> comboAno;
@@ -1004,7 +913,6 @@ public class telaAdminCarros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1016,15 +924,12 @@ public class telaAdminCarros extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPanel painelConsultaClientes;
     private javax.swing.JPanel painelConsultaClientes1;
-    private javax.swing.JPanel painelConsultaClientes2;
     private javax.swing.JTabbedPane painelDaTabelaClientes;
     private javax.swing.JPanel painelDadosPessoais;
     private javax.swing.JTable tabelaDeClientes;
     private javax.swing.JTable tabelaDeClientes3;
-    private javax.swing.JTable tabelaDeClientes4;
     private javax.swing.JTextField txtChassis;
     private javax.swing.JTextField txtCodigoDados;
     private javax.swing.JTextField txtCor;
@@ -1033,7 +938,6 @@ public class telaAdminCarros extends javax.swing.JFrame {
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtNomeConsultaCliente;
     private javax.swing.JTextField txtNomeConsultaCliente1;
-    private javax.swing.JTextField txtNomeConsultaCliente2;
     private javax.swing.JTextField txtPlaca;
     private javax.swing.JTextField txtValorAluguel;
     // End of variables declaration//GEN-END:variables

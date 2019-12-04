@@ -43,13 +43,13 @@ public class TelaHome extends javax.swing.JFrame {
         MenuContrato = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        menuVeiculo = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
         menuFerramenta = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        menuVeiculo = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Homescreen");
@@ -68,7 +68,7 @@ public class TelaHome extends javax.swing.JFrame {
         );
         DesktopLayout.setVerticalGroup(
             DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 511, Short.MAX_VALUE)
+            .addGap(0, 523, Short.MAX_VALUE)
         );
 
         selecTema.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nimbus", "GTK+" }));
@@ -80,8 +80,9 @@ public class TelaHome extends javax.swing.JFrame {
             }
         });
 
-        jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
+        MenuCliente.setIcon(new javax.swing.ImageIcon("/home/luiz/NetBeansProjects/FleetManagement/src/main/java/IMAGENS/ClienteIcone.png")); // NOI18N
         MenuCliente.setText("Clientes");
 
         jMenuItem1.setText("Cadastro");
@@ -102,6 +103,7 @@ public class TelaHome extends javax.swing.JFrame {
 
         jMenuBar1.add(MenuCliente);
 
+        MenuContrato.setIcon(new javax.swing.ImageIcon("/home/luiz/NetBeansProjects/FleetManagement/src/main/java/IMAGENS/contratoIcone.png")); // NOI18N
         MenuContrato.setText("Contratos");
 
         jMenuItem3.setText("Cadastro");
@@ -122,24 +124,7 @@ public class TelaHome extends javax.swing.JFrame {
 
         jMenuBar1.add(MenuContrato);
 
-        menuFerramenta.setText("Ferramentas");
-
-        jMenuItem5.setText("Editar login");
-        menuFerramenta.add(jMenuItem5);
-
-        jMenuItem6.setText("Criar conta");
-        menuFerramenta.add(jMenuItem6);
-
-        jMenuItem7.setText("Tema");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
-            }
-        });
-        menuFerramenta.add(jMenuItem7);
-
-        jMenuBar1.add(menuFerramenta);
-
+        menuVeiculo.setIcon(new javax.swing.ImageIcon("/home/luiz/NetBeansProjects/FleetManagement/src/main/java/IMAGENS/veiculosIcone.png")); // NOI18N
         menuVeiculo.setText("Veículos");
 
         jMenuItem8.setText("Controle");
@@ -152,7 +137,43 @@ public class TelaHome extends javax.swing.JFrame {
 
         jMenuBar1.add(menuVeiculo);
 
+        menuFerramenta.setIcon(new javax.swing.ImageIcon("/home/luiz/NetBeansProjects/FleetManagement/src/main/java/IMAGENS/ferramentaIcone.png")); // NOI18N
+        menuFerramenta.setText("Ferramentas");
+
+        jMenuItem5.setText("Editar login");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        menuFerramenta.add(jMenuItem5);
+
+        jMenuItem6.setText("Criar conta");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        menuFerramenta.add(jMenuItem6);
+
+        jMenuBar1.add(menuFerramenta);
+
+        jMenu4.setIcon(new javax.swing.ImageIcon("/home/luiz/NetBeansProjects/FleetManagement/src/main/java/IMAGENS/InfoIcone.png")); // NOI18N
         jMenu4.setText("Sobre");
+        jMenu4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu4ActionPerformed(evt);
+            }
+        });
+
+        jMenuItem7.setText("Licença");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem7);
+
         jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
@@ -163,7 +184,7 @@ public class TelaHome extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Desktop)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(selecTema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(tema)
@@ -172,11 +193,10 @@ public class TelaHome extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(selecTema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tema))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Desktop)
                 .addContainerGap())
         );
@@ -203,13 +223,6 @@ public class TelaHome extends javax.swing.JFrame {
         listaCont.show();
 
     }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-       TelaTema tema = new TelaTema();
-       Desktop.add(tema);
-       tema.show();
-              
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void temaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_temaActionPerformed
 try {
@@ -248,6 +261,27 @@ try {
         Desktop.add(cad);
         cad.show();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        TelaListaUsuarios usrs = new TelaListaUsuarios();
+        Desktop.add(usrs);
+        usrs.show();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        TelaCadastroUsuario cad = new TelaCadastroUsuario();
+        Desktop.add(cad);
+        cad.show();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
+        
+    }//GEN-LAST:event_jMenu4ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        TelaLicenca sobre = new TelaLicenca();
+        sobre.setVisible(true);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments

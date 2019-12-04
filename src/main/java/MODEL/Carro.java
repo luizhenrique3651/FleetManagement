@@ -21,6 +21,17 @@ public class Carro {
     private double valor_mensal;
     private int km_atual;
     private int km_troca;
+    private String disponivel;
+
+    public String getDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(String disponivel) {
+        this.disponivel = disponivel;
+    }
+    
+   
 
     public int getId_carro() {
         return id_carro;

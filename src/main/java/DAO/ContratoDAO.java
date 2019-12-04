@@ -17,16 +17,18 @@ public class ContratoDAO {
 		this.connection = new ConnectionFactory().getConnection();
 
 	}
-        /*
-public void adiciona(Estoque estoque ){
-		String sql = "insert into estoque" + "(descricao,preco,quantidade)" + "values (?, ?, ?)";
+        
+public void adiciona(Contrato contrato ){
+		String sql = "insert into contrato" + 
+                        "(valor_anual, id_cliente, id_carro)" +
+                        "values (?, ?, ?)";
 		try {
                     PreparedStatement stmt = connection.prepareStatement(sql);
 
 			
-                        stmt.setString(1, estoque.getDescricao());
-                        stmt.setDouble(2, estoque.getPreco());
-                        stmt.setInt(3, estoque.getQuantidade());
+                        stmt.setDouble(1, contrato.getValor_anual());
+                        stmt.setInt(2, contrato.getId_cliente());
+                        stmt.setInt(3, contrato.getId_carro());
                         stmt.execute();
 			stmt.close();
                         JOptionPane.showMessageDialog(null, "inserido com sucesso!");
@@ -36,16 +38,15 @@ public void adiciona(Estoque estoque ){
                         JOptionPane.showMessageDialog(null, "ERRO: "+e);
 		}
 }
-public void altera(Estoque estoque) {
-		String sql = "update estoque set quantidade=?, descricao=?, preco=?  where id_produto=?;";
+public void altera(Contrato contrato) {
+		String sql = "update contrato set valor_anual=?, id_cliente=?,"
+                        + " id_carro=?  where id_contratoo=?;";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
-			stmt.setInt(1, estoque.getQuantidade());
-			stmt.setString(2, estoque.getDescricao());
-			stmt.setDouble(3, estoque.getPreco());
-			stmt.setInt(4, estoque.getId_produto());
-
+                        stmt.setDouble(1, contrato.getValor_anual());
+                        stmt.setInt(2, contrato.getId_cliente());
+                        stmt.setInt(3, contrato.getId_carro());
 			stmt.execute();
 			stmt.close();
 			
@@ -53,12 +54,14 @@ public void altera(Estoque estoque) {
 		} catch (Exception e) {
                             JOptionPane.showMessageDialog(null, e);
                 }
+        
 	}
-public void remove(Estoque estoque) {
+public void remove(Contrato contrato) {
 		try {
-			PreparedStatement stmt = connection.prepareStatement("delete from estoque where id_produto=?");
+			PreparedStatement stmt = connection.prepareStatement(
+                                "delete from contrato where id_contrato=?");
 
-			stmt.setInt(1, estoque.getId_produto());
+			stmt.setInt(1, contrato.getId_contrato());
 			stmt.execute();
 			stmt.close();
 
@@ -69,7 +72,7 @@ public void remove(Estoque estoque) {
 		}
 	}
 
-*/
+
 public List<Contrato> getLista() {
 		try {
 

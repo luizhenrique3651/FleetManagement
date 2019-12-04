@@ -10,10 +10,30 @@ package MODEL;
  * @author bruno
  */
 public class Contrato {
+    private int id_cliente;
+    private int id_carro;
     private int id_contrato;
     private double valor_anual;
     private String modelo;  
     private String nome;
+
+    public int getId_carro() {
+        return id_carro;
+    }
+
+    public void setId_carro(int id_carro) {
+        this.id_carro = id_carro;
+    }
+    
+    
+    
+    public int getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
+    }
 
     public int getId_contrato() {
         return id_contrato;
